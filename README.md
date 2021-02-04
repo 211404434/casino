@@ -1,4 +1,4 @@
-# casino
+# Console Roulette(Please see the PDP named executed Test Cases for tested senarios)
 Requirements:
 ------------
 
