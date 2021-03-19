@@ -50,25 +50,6 @@ public class RouletteTest {
     }
 
     @Test
-    public void should_register_a_bet_when_game_is_being_played() throws GameException, IOException, InterruptedException {
-        final String testPlayer = "Tiki_Monkey";
-        final String[] playersStrings = {testPlayer + ",10.0,6.0", "Barbara,5.5,0.0", "Player,12.0,35.0"};
-        final File initFile = initFileFromContent(playersStrings);
-        final Roulette roulette = createRouletteFrom(initFile);
-        startRouletteForTest(roulette, 1);
-
-        final String betString = testPlayer + " EVEN  25.0";
-        final Bet bet = aBetFor(roulette).fromInput(betString);
-        final boolean betPlaced = roulette.placeBet(bet);
-
-        assertTrue(betPlaced);
-        Thread.sleep(3);//give some time to add the bet to the list, may vary depending on machine
-
-        Collection<Bet> currentBets = roulette.currentBets();
-        assertThat(currentBets, hasItem(bet));
-    }
-
-    @Test
     public void should_return_a_result_after_each_spin_interval() throws Exception {
         final int spinInterval = 1;
         final int repeats = 3;
